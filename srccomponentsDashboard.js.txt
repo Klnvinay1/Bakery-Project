@@ -1,0 +1,23 @@
+// src/components/Dashboard.js
+
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchOrders } from '../actions/orderActions';
+
+const Dashboard = () => {
+  const dispatch = useDispatch();
+  const orders = useSelector((state) => state.orders);
+
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, [dispatch]);
+
+  return (
+    <div>
+      <h1>Star Bakery Dashboard</h1>
+      {/* Add your dashboard components and charts here */}
+    </div>
+  );
+};
+
+export default Dashboard;
