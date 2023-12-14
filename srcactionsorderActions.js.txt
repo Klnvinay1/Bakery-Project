@@ -1,0 +1,12 @@
+// src/actions/orderActions.js
+
+import axios from 'axios';
+
+export const fetchOrders = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/api/orders'); // Replace with your backend endpoint
+    dispatch({ type: 'FETCH_ORDERS_SUCCESS', payload: response.data });
+  } catch (error) {
+    dispatch({ type: 'FETCH_ORDERS_FAILURE', payload: error.message });
+  }
+};
